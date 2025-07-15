@@ -40,6 +40,31 @@
     @media screen and (max-width: 600px) {
       .products { grid-template-columns: 1fr; }
     }
+    .search-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-container input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-container button {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: #333;
+}
+.search-container button:nth-child(3):hover {
+  background-color: #999;
+}
+
     ul { padding-left: 20px; line-height: 1.6; }
     h3 { color: #d94b8a; margin-top: 20px; }
     .product {
@@ -90,11 +115,18 @@
   <h2>Glow Up with Our Wellness & Beauty Combos</h2>
   <p>Affordable | Hand-picked | Reseller Friendly</p>
 </div>
- <input type="text" id="productSearch" placeholder="Search for a product..." onkeyup="filterProducts()" style="width: 100%; padding: 10px; margin-bottom: 20px; font-size: 16px;">
+ 
 <main>
   <section id="about" class="section" aria-labelledby="about-heading">
     <h2 id="about-heading">About Us</h2>
     <p>Affordable beauty, wellness, and self-care essentials – made for every darling.</p>
+    <div class="search-container" style="margin-bottom: 20px;">
+  <input type="text" id="productSearch" placeholder="Search for a product..." style="padding: 10px; width: 60%; font-size: 16px;">
+  <button onclick="filterProducts()" style="padding: 10px 15px; font-size: 16px; background-color: #000; color: #fff; border: none;">Search</button>
+  <button onclick="resetSearch()" style="padding: 10px 15px; font-size: 16px; background-color: #ccc; color: #000; border: none;">Clear</button>
+</div>
+
+
   </section>
 <section id="products" class="section" aria-labelledby="products-heading">
   <h2 id="products-heading">Featured Products</h2>
@@ -459,6 +491,28 @@
 <footer>
   <p>&copy; 2025 Dapper Darlings pty ltd. All rights reserved.</p>
 </footer>
+<script>
+  function filterProducts() {
+    const input = document.getElementById('productSearch').value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+      const text = product.innerText.toLowerCase();
+      if (text.includes(input)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+  function resetSearch() {
+    document.getElementById('productSearch').value = "";
+    const products = document.querySelectorAll('.product');
+    products.forEach(product => {
+      product.style.display = 'block';
+    });
+  }
+</script>
 
 </body>
 </html>
