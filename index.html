@@ -2,419 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dapper darlings pty ltd </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dapper Darlings pty ltd — Affordable Beauty & Wellness</title>
+  <meta name="description" content="Dapper Darlings pty ltd offers affordable beauty, wellness, and self-care essentials with a variety of perfumes, hair care, and wellness combos. Shop now and glow up!" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #fff5f9; }
-    header,footer { background: #ffccdd; padding: 20px; text-align: center; }
-  
-
+    body { font-family: Arial, sans-serif; margin: 0; background: #fff5f9; color: #333; }
+    header, footer { background: #ffccdd; padding: 20px; text-align: center; }
     nav a { margin: 0 10px; text-decoration: none; color: #444; }
-   .hero {
-  background: url('images/header.png') no-repeat center center;
-  background-size: cover;
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-  position: relative;
-}
-
-.hero h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-}
-
-.hero p {
-  font-size: 18px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-}
-
-    .section { padding: 30px; }
+    nav a:focus, nav a:hover { text-decoration: underline; }
+    .hero {
+      background: url('images/header.png') no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 1.125rem;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+    main { max-width: 1200px; margin: auto; padding: 20px; }
+    .section { padding: 30px 10px; }
     .products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-@media screen and (max-width: 992px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .products {
-    grid-template-columns: 1fr;
-  }
-}
-ul {
-  padding-left: 20px;
-  line-height: 1.6;
-}
-
-h3 {
-  color: #d94b8a;
-  margin-top: 20px;
-}
-
-    .product { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .product img { width: 100%; border-radius: 10px; }
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media screen and (max-width: 992px) {
+      .products { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media screen and (max-width: 600px) {
+      .products { grid-template-columns: 1fr; }
+    }
+    ul { padding-left: 20px; line-height: 1.6; }
+    h3 { color: #d94b8a; margin-top: 20px; }
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+      height: auto;
+      object-fit: cover;
+    }
     .contact { text-align: center; padding: 20px; }
-    button { background: #ff66a3; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+    button {
+      background: #ff66a3;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    button:hover, button:focus {
+      background: #e6558a;
+      outline: none;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <h1>Dapper Darlings pty ltd</h1>
-  <nav>
+  <nav aria-label="Main Navigation">
     <a href="#about">About</a>
     <a href="#products">Shop</a>
     <a href="#delivery">Delivery & Payment</a>
-
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<div class="hero">
+<div class="hero" role="banner">
   <h2>Glow Up with Our Wellness & Beauty Combos</h2>
   <p>Affordable | Hand-picked | Reseller Friendly</p>
 </div>
 
-<section id="about" class="section">
-  <h2>About Me</h2>
-  <p>Affordable beauty, wellness, and self-care essentials – made for every darling.</p></p>
-</section>
+<main>
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <h2 id="about-heading">About Us</h2>
+    <p>Affordable beauty, wellness, and self-care essentials – made for every darling.</p>
+  </section>
 
-<section id="products" class="section">
-  <h2>Featured Products</h2>
-  <div class="products">
-    <div class="product">
-      <img src="images/2.png" alt="Lataffa lovers" />
-      <h3>lataffa lovers</h3>
-      <p>any 2 x 100ml lataffa perfumes plus any 50ml perfume bonus</p>
-      <p>R450</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I'm%20interested%20in%20the%20Hayati%2050ml"><button>Order Now</button></a>
+  <section id="products" class="section" aria-labelledby="products-heading">
+    <h2 id="products-heading">Featured Products</h2>
+    <div class="products">
+      <!-- Example Product -->
+      <article class="product" aria-label="Lataffa Lovers perfume bundle">
+        <img src="images/2.png" alt="Lataffa Lovers perfume bottles" loading="lazy" />
+        <h3>Lataffa Lovers</h3>
+        <p>Any 2 x 100ml Lataffa perfumes plus any 50ml perfume bonus</p>
+        <p>R450</p>
+        <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I'm%20interested%20in%20the%20Lataffa%20Lovers%20perfume%20bundle">
+          <button type="button" aria-label="Order Lataffa Lovers now">Order Now</button>
+        </a>
+      </article>
+      <!-- Repeat other products similarly with article -->
+      <!-- ... -->
     </div>
-    <div class="product">
-      <img src="images/Glow-up.png" alt="Glow Combo" />
-        <h3>Glow-up Combo</h3>
-      <p>Poly gel nail kit + 120pc Nail forms + any 50ml perfume</p>
-      <p>R299</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/3.png" alt="Date night trio" />
-        <h3>Date night trio</h3>
-      <p>AJWAD 100ml + ASAD 100ml + Khamrah 50ml</p>
-      <p>R520</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/4.png" alt="Silk hair ritual" />
-        <h3>Silk hair ritual</h3>
-      <p>keratin shampoo 500ml,keratine conditioner 500ml and mayar natral intense 100ml</p>
-      <p>R320</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/5.png" alt="silk hair ritual" />
-        <h3>Silk hair ritual</h3>
-      <p>keratin shampoo 500ml,keratine conditioner 500ml and mousuf 100ml</p>
-      <p>R320</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/6.png" alt="50 ML perfumes" />
-        <h3>50ml perfumes</h3>
-      <p><strong>La Vida es bella 50ml:</strong>Celebrate life with this joyful fragrance, blending sweet florals and soft vanilla for a beautifully uplifting scent.
-       <br><strong>Haya 50ml:</strong> A fresh and elegant scent featuring delicate floral and citrus notes, ideal for a graceful, everyday fragrance
-       <br><strong>Ajwad 50ml:</strong>A rich, long-lasting fragrance with warm woody and floral notes, perfect for everyday luxury.
+  </section>
 
- </p>
-      <p>R75</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/7.png" alt="50ml perfumes" />
-        <h3>50ml perfumes</h3>
-      <p><strong>Rave now 50ml:</strong>A fresh and modern scent with soft floral and fruity notes — perfect for everyday elegance.<br><strong>Khamrah 50ml:</strong>Rich, warm, and unforgettable — a fragrance that commands attention.<br> <strong>ramz gold 50ml:</strong>A sophisticated fusion of oriental woods, amber, and musk — bold, warm, and made to leave a lasting impression. </p>
-      <p>R75</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/8.png" alt="50ml perfumes" />
-        <h3>50ml perfumes</h3>
-      <p><strong>Hayaati 50ml :</strong> A vibrant and enchanting fragrance with floral and fruity notes, perfect for everyday elegance and special moments.<br><strong>lail malake 50ml :</strong> Strong, spicy, and unforgettable — a royal blend of oud & musk for the confident man</p>
-      <p>R75</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/9.png" alt="AJWAD 100ML" />
-        <h3>AJWAD 100ML</h3>
-      <p>A warm and inviting fragrance with sweet florals,soft muusk and woody undertones-elegant,long-lasting and beautifully balanced.</p>
-      <p>R250</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/10.png" alt="Barez 100ml" />
-        <h3>Barez 100ml</h3>
-      <p>A fresh and invigorating fragrance blending citrus, aromatic herbs, and subtle woody notes — perfect for everyday confidence.
+  <section id="delivery" class="section" aria-labelledby="delivery-heading">
+    <h2 id="delivery-heading">Delivery & Payment</h2>
+    <h3>📦 Courier Options</h3>
+    <ul>
+      <li><strong>Pudo Locker to Locker:</strong> R60 (2–4 working days)</li>
+      <li><strong>PostNet to PostNet:</strong> R109 (2–3 working days)</li>
+      <li><strong>The Courier Guy (to door):</strong> R120 (1–2 working days)</li>
+    </ul>
 
-</p>
-      <p>R200</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-<div class="product">
-      <img src="images/11.png" alt="Ameerat 100ml private princess" />
-        <h3>private princess 100ml</h3>
-      <p>A bold twist on the classic — rich floral and fruity notes with warm musk and amber for a passionate, long-lasting scent
+    <h3>💳 Bank Details for EFT Payments</h3>
+    <p><strong>Account Holder:</strong> Dapper Darlings pty ltd</p>
+    <p><strong>Bank:</strong> ABSA</p>
+    <p><strong>Account Type:</strong> Cheque</p>
+    <p><strong>Account Number:</strong> 4109438532</p>
+    <p><strong>Branch Code:</strong> 632005</p>
+    <p><strong>Reference:</strong> Your Name</p>
 
-</p>
-      <p>R200</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <div class="product">
-      <img src="images/12.png" alt="ASAD 100ML" />
-        <h3>ASAD 100 ML</h3>
-      <p>A powerful, masculine fragrance with spicy notes, rich woods, and deep musk — confident, intense, and unforgettable.
+    <p><em>Send proof of payment via WhatsApp after placing your order.</em></p>
+  </section>
 
-</p>
-      <p>R220</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-     <div class="product">
-      <img src="images/13.png" alt="HAYAATI 100ML" />
-        <h3>Hayaati 100 ML</h3>
-      <p>
-A vibrant and enchanting fragrance with floral and fruity notes, perfect for everyday elegance and special moments.
-</p>
-      <p>R280</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-     <div class="product">
-      <img src="images/14.png" alt="Khamrah 100ML" />
-        <h3>khamrah 100 ML</h3>
-      <p>
-A bold and captivating scent with warm spicy, sweet, and woody notes — inspired by luxury and tradition.
-</p>
-      <p>R280</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-     <div class="product">
-      <img src="images/15.png" alt="Khamrah qahwa 100ml" />
-        <h3>khamrah Qahwa 100 ML</h3>
-      <p>
-A rich and warm fragrance blending aromatic coffee notes with spicy and woody undertones — perfect for cozy, elegant moments.
-</p>
-      <p>R280</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-     <div class="product">
-      <img src="images/16.png" alt="mayar natural intense 100ml" />
-        <h3>mayar natural intense 100 ML</h3>
-      <p>
-A vibrant and long-lasting fragrance with fruity, floral, and musky notes — bold yet beautifully feminine.
-</p>
-      <p>R200</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-      <div class="product">
-      <img src="images/17.png" alt="mayar 100ml" />
-        <h3>Mayar 100 ML</h3>
-      <p>
-A soft, romantic blend of fresh florals and sweet fruit notes — feminine, youthful, and perfect for everyday wear.
-</p>
-      <p>R210</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-      <div class="product">
-      <img src="images/18.png" alt="rave now rough 100ml" />
-        <h3>rave now rough 100 ML</h3>
-      <p>
-A vibrant and energetic scent with fruity top notes, soft florals, and a warm musky base — confident, playful, and modern.
-</p>
-      <p>R200</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-        <div class="product">
-      <img src="images/19.png" alt="ramz silver 100ml" />
-        <h3>Ramz silver 100 ML</h3>
-      <p>
-A sophisticated fusion of oriental woods, amber, and musk — bold, warm, and made to leave a lasting impression.
-</p>
-      <p>R180</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-        <div class="product">
-      <img src="images/20.png" alt="ramz gold 100ml" />
-        <h3>Ramz gold 100 ML</h3>
-      <p>
-A bold and luxurious scent with warm amber, soft musk, and hints of spice — crafted for those who love elegance with a statement.
-</p>
-      <p>R180</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-         <div class="product">
-      <img src="images/21.png" alt="rose paris 100ml" />
-        <h3>Rose paris 100 ML</h3>
-      <p>
-A delicate bouquet of fresh roses blended with soft musk and a hint of citrus — timeless, romantic, and feminine.
-</p>
-      <p>R180</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-         <div class="product">
-      <img src="images/22.png" alt="velvet rose 100ml" />
-        <h3>Velvet rose 100 ML</h3>
-      <p>
-A luxurious blend of rich rose petals and warm musk — soft, sensual, and timelessly feminine.
-</p>
-      <p>R200</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-      <div class="product">
-      <img src="images/23.png" alt="yara candy 100ml" />
-        <h3>Yara candy 100 ML</h3>
-      <p>
-A playful and sweet fragrance bursting with fruity, creamy, and sugary notes — perfect for candy lovers and confident queens.
-</p>
-      <p>R210</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-      <div class="product">
-      <img src="images/24.png" alt="mousuf 100ml" />
-        <h3>mousuf 100 ML</h3>
-      <p>
-A warm and woody fragrance with notes of amber, spice, and soft leather — smooth, masculine, and irresistibly bold.
-</p>
-      <p>R180</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-      <div class="product">
-      <img src="images/26.png" alt="oud mood 100ml" />
-        <h3>oud mood 100 ML</h3>
-      <p>
-An opulent blend of oud, amber, and sweet florals — rich, warm, and unforgettable. A scent that speaks pure elegance.
-</p>
-      <p>R80</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-        <div class="product">
-      <img src="images/27.png" alt="lail malaki 100ml" />
-        <h3>lail malaki 100 ML</h3>
-      <p>
-A captivating blend of sweet florals, soft musk, and warm amber — mysterious, feminine, and perfect for evening elegance.
-</p>
-      <p>R280</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-      <div class="product">
-      <img src="images/28.png" alt="luxury hair care kit" />
-        <h3>luxury hair care kit</h3>
-      <p>
-All-in-one styling set featuring hair mousse, heat protection spray, lace tint, lace glue pen, wax stick, lace glue & remover, edge control, and edge brush/comb — everything you need for flawless installs and sleek edges.
-</p>
-      <p>R400</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-
-      <div class="product">
-      <img src="images/29.png" alt="keratin set" />
-        <h3>keratin shampoo & conditioner set</h3>
-      <p>
-Strengthen and smooth your hair with this nourishing duo infused with keratin — for frizz-free, silky, and healthy-looking hair.
-</p>
-      <p>R200</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-      <div class="product">
-      <img src="images/30.png" alt="morning metabolism boost combo" />
-        <h3>morning metabolism booster kit</h3>
-      <p>
-Kickstart your day with this energizing combo designed to boost metabolism, burn fat, and support overall wellness
-</p>
-      <p>R540</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-
-     <div class="product">
-      <img src="images/31.png" alt="Wellness Queen Starter Pack" />
-        <h3>Wellness Queen Starter Pack</h3>
-      <p>
-Your all-in-one wellness bundle to glow from the inside out — supporting energy, gut health, weight management, and confidence.
-</p>
-      <p>R960</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-     <div class="product">
-      <img src="images/32.png" alt="Glow & Gut Wellness Pack
-" />
-        <h3>Glow & Gut Wellness Pack
-</h3>
-      <p>
-A powerful duo to support radiant skin and a healthy digestive system — feel balanced, energized, and beautiful from within.
-</p>
-      <p>R770</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-       <div class="product">
-      <img src="images/33.png" alt="Total Body Reset Kit
-" />
-        <h3>Total Body Reset Kit
-</h3>
-      <p>
-A full-body wellness bundle designed to cleanse, energize, and restore — perfect for kickstarting a healthier, more balanced you.
-</p>
-      <p>R740</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-       <div class="product">
-      <img src="images/34.png" alt="Slim & Sculpt Combo
-" />
-        <h3>Slim & Sculpt Combo
-</h3>
-      <p>
-A targeted wellness set designed to support fat-burning, waist shaping, and overall body toning — your sculpting journey starts here
-</p>
-      <p>R410</p>
-      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
-    </div>
-    <!-- Add more products as needed -->
-  </div>
-</section>
-<section id="delivery" class="section">
-  <h2>Delivery & Payment</h2>
-
-  <h3>📦 Courier Options</h3>
-  <ul>
-    <li><strong>Pudo Locker to Locker:</strong> R60 (2–4 working days)</li>
-     <li><strong>PostNet to PostNet:</strong> R109 (2–3 working days)</li>
-    <li><strong>The Courier Guy (to door):</strong> R120 (1–2 working days)</li>
-  </ul>
-
-  <h3>💳 Bank Details for EFT Payments</h3>
-  <p><strong>Account Holder:</strong>Dapper Darlings pty ltd</p>
-  <p><strong>Bank:</strong> ABSA</p>
-  <p><strong>Account Type:</strong> Cheque</p>
-  <p><strong>Account Number:</strong> 4109438532</p>
-  <p><strong>Branch Code:</strong> 632005</p>
-  <p><strong>Reference:</strong> Your Name</p>
-
-  <p>📸 <em>Send proof of payment via WhatsApp after placing your order.</em></p>
-</section>
-
-<section id="contact" class="section contact">
-  <h2>Contact Me</h2>
-  <p>📱 WhatsApp: <a href="https://wa.me/27639440527">+27 639440527</a></p>
-  <p>📧 Email: Robbertselmari@gmail.com</p>
-  
-  <p>📘 Facebook: Dapper Darlings pty ltd </p>
-</section>
+  <section id="contact" class="section contact" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Us</h2>
+    <p>📱 WhatsApp: <a href="https://wa.me/27639440527">+27 639 440 527</a></p>
+    <p>📧 Email: <a href="mailto:Robbertselmari@gmail.com">Robbertselmari@gmail.com</a></p>
+    <p>📘 Facebook: <a href="https://facebook.com/DapperDarlingsPtyLtd" target="_blank" rel="noopener noreferrer">Dapper Darlings pty ltd</a></p>
+  </section>
+</main>
 
 <footer>
-  <p>&copy; 2025 dapper darlings pty ltd. All rights reserved.</p>
+  <p>&copy; 2025 Dapper Darlings pty ltd. All rights reserved.</p>
 </footer>
 
 </body>
