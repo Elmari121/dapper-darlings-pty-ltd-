@@ -10,7 +10,24 @@
     nav a { margin: 0 10px; text-decoration: none; color: #444; }
     .hero { text-align: center; padding: 40px 20px; background: #ffeaf2; }
     .section { padding: 30px; }
-    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+    .products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+
     .product { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     .product img { width: 100%; border-radius: 10px; }
     .contact { text-align: center; padding: 20px; }
@@ -42,19 +59,82 @@
   <h2>Featured Products</h2>
   <div class="products">
     <div class="product">
-      <img src="hayati.jpg" alt="Hayati Perfume" />
-      <h3>Hayati 50ml</h3>
-      <p>Long-lasting Arabic perfume.</p>
-      <p>R150</p>
+      <img src="images/2.png" alt="Lataffa lovers" />
+      <h3>lataffa lovers</h3>
+      <p>any 2 x 100ml lataffa perfumes plus any 50ml perfume bonus</p>
+      <p>R450</p>
       <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I'm%20interested%20in%20the%20Hayati%2050ml"><button>Order Now</button></a>
     </div>
     <div class="product">
-      <img src="GLOW-UPcombo.png" alt="Glow Combo" />
-      <h3>Glow Combo</h3>
-      <p>Poly gel + Perfume + Nail forms</p>
+      <img src="images/Glow-up.png" alt="Glow Combo" />
+        <h3>Glow-up Combo</h3>
+      <p>Poly gel nail kit + 120pc Nail forms + any 50ml perfume</p>
       <p>R299</p>
       <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
     </div>
+    <div class="product">
+      <img src="images/3.png" alt="Date night trio" />
+        <h3>Date night trio</h3>
+      <p>AJWAD 100ml + ASAD 100ml + Khamrah 50ml</p>
+      <p>R520</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+    <div class="product">
+      <img src="images/4.png" alt="Silk hair ritual" />
+        <h3>Silk hair ritual</h3>
+      <p>keratin shampoo 500ml,keratine conditioner 500ml and mayar natral intense 100ml</p>
+      <p>R320</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+    <div class="product">
+      <img src="images/5.png" alt="silk hair ritual" />
+        <h3>Silk hair ritual</h3>
+      <p>keratin shampoo 500ml,keratine conditioner 500ml and mousuf 100ml</p>
+      <p>R320</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+    <div class="product">
+      <img src="images/6.png" alt="50 ML perfumes" />
+        <h3>50ml perfumes</h3>
+      <p><strong>La Vida es bella 50ml:</strong>Celebrate life with this joyful fragrance, blending sweet florals and soft vanilla for a beautifully uplifting scent.
+       <br><strong>Haya 50ml:</strong> A fresh and elegant scent featuring delicate floral and citrus notes, ideal for a graceful, everyday fragrance
+       <br><strong>Ajwad 50ml:</strong>A rich, long-lasting fragrance with warm woody and floral notes, perfect for everyday luxury.
+
+ </p>
+      <p>R75</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+    <div class="product">
+      <img src="images/7.png" alt="50ml perfumes" />
+        <h3>50ml perfumes</h3>
+      <p><strong>Rave now 50ml:</strong>A fresh and modern scent with soft floral and fruity notes — perfect for everyday elegance.<br><strong>Khamrah 50ml:</strong>Rich, warm, and unforgettable — a fragrance that commands attention.<br> <strong>ramz gold 50ml:</strong>A sophisticated fusion of oriental woods, amber, and musk — bold, warm, and made to leave a lasting impression. </p>
+      <p>R75</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+    <div class="product">
+      <img src="images/8.png" alt="50ml perfumes" />
+        <h3>50ml perfumes</h3>
+      <p><strong>Hayaati 50ml :</strong> A vibrant and enchanting fragrance with floral and fruity notes, perfect for everyday elegance and special moments.<br><strong>lail malake 50ml :</strong> Strong, spicy, and unforgettable — a royal blend of oud & musk for the confident man</p>
+      <p>R75</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+    <div class="product">
+      <img src="images/9.png" alt="AJWAD 100ML" />
+        <h3>AJWAD 100ML</h3>
+      <p>A warm and inviting fragrance with sweet florals,soft muusk and woody undertones-elegant,long-lasting and beautifully balanced.</p>
+      <p>R250</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+    <div class="product">
+      <img src="images/10.png" alt="Barez 100ml" />
+        <h3>Barez 100ml</h3>
+      <p>A fresh and invigorating fragrance blending citrus, aromatic herbs, and subtle woody notes — perfect for everyday confidence.
+
+</p>
+      <p>R200</p>
+      <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20Combo"><button>Order Now</button></a>
+    </div>
+
     <!-- Add more products as needed -->
   </div>
 </section>
