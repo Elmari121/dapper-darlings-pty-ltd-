@@ -40,34 +40,43 @@
     @media screen and (max-width: 600px) {
       .products { grid-template-columns: 1fr; }
     }
-    .search-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+   .filter-bar {
+  margin: 20px 0;
+  text-align: center;
 }
 
-.search-container input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.search-container button {
-  border-radius: 5px;
+.filter-bar button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  background-color: #f89fbd;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border-radius: 8px;
+  transition: background 0.3s;
 }
 
-.search-container button:hover {
-  background-color: #333;
+.filter-bar button:hover {
+  background-color: #d94b8a;
 }
-.search-container button:nth-child(3):hover {
-  background-color: #999;
+.favorite-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
 }
+
+.product.favorited .favorite-btn {
+  color: red;
+}
+
 
     ul { padding-left: 20px; line-height: 1.6; }
     h3 { color: #d94b8a; margin-top: 20px; }
     .product {
+       position: relative;
       background: white;
       padding: 15px;
       border-radius: 10px;
@@ -120,10 +129,14 @@
   <section id="about" class="section" aria-labelledby="about-heading">
     <h2 id="about-heading">About Us</h2>
     <p>Affordable beauty, wellness, and self-care essentials – made for every darling.</p>
-    <div class="search-container" style="margin-bottom: 20px;">
-  <input type="text" id="productSearch" placeholder="Search for a product..." style="padding: 10px; width: 60%; font-size: 16px;">
-  <button onclick="filterProducts()" style="padding: 10px 15px; font-size: 16px; background-color: #000; color: #fff; border: none;">Search</button>
-  <button onclick="resetSearch()" style="padding: 10px 15px; font-size: 16px; background-color: #ccc; color: #000; border: none;">Clear</button>
+   
+<div id="category-filter" class="filter-bar">
+  <button data-filter="all">All</button>
+  <button data-filter="perfume">Perfumes</button>
+  <button data-filter="combo">Combos</button>
+  <button data-filter="wellness">Wellness</button>
+  <button id="show-favorites-btn">Show My Wishlist ❤️</button>
+
 </div>
 
 
@@ -132,7 +145,8 @@
   <h2 id="products-heading">Featured Products</h2>
   <div class="products">
 
-    <article class="product" aria-label="Lataffa lovers perfume combo">
+    <article class="product" data-id="1" data-category="combo" aria-label="Lataffa lovers perfume combo">
+     <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/2.png" alt="Lataffa lovers" loading="lazy" />
       <h3>Lataffa lovers</h3>
       <p>Any 2 x 100ml Lataffa perfumes plus any 50ml perfume bonus</p>
@@ -142,7 +156,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Glow-up Combo with nail kit and perfume">
+    <article class="product" data-id="2" data-category="combo" aria-label="Glow-up Combo with nail kit and perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/Glow-up.png" alt="Glow Combo" loading="lazy" />
       <h3>Glow-up Combo</h3>
       <p>Poly gel nail kit + 120pc Nail forms + any 50ml perfume</p>
@@ -152,7 +167,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Date night trio perfume set">
+    <article class="product" data-category="combo"  aria-label="Date night trio perfume set">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/3.png" alt="Date night trio" loading="lazy" />
       <h3>Date night trio</h3>
       <p>AJWAD 100ml + ASAD 100ml + Khamrah 50ml</p>
@@ -162,7 +178,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Silk hair ritual shampoo and conditioner set with Mayar perfume">
+    <article class="product" data-category="combo" aria-label="Silk hair ritual shampoo and conditioner set with Mayar perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/4.png" alt="Silk hair ritual" loading="lazy" />
       <h3>Silk hair ritual</h3>
       <p>Keratin shampoo 500ml, keratin conditioner 500ml and Mayar natural intense 100ml</p>
@@ -172,7 +189,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Silk hair ritual shampoo and conditioner set with Mousuf perfume">
+    <article class="product" data-category="combo"aria-label="Silk hair ritual shampoo and conditioner set with Mousuf perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/5.png" alt="Silk hair ritual" loading="lazy" />
       <h3>Silk hair ritual</h3>
       <p>Keratin shampoo 500ml, keratin conditioner 500ml and Mousuf 100ml</p>
@@ -182,7 +200,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="50ml perfumes including La Vida es Bella, Haya, and Ajwad">
+    <article class="product" data-category="perfume" aria-label="50ml perfumes including La Vida es Bella, Haya, and Ajwad">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/6.png" alt="50 ML perfumes" loading="lazy" />
       <h3>50ml perfumes</h3>
       <p>
@@ -196,7 +215,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="50ml perfumes including Rave Now, Khamrah, and Ramz Gold">
+    <article class="product" data-category="perfume" aria-label="50ml perfumes including Rave Now, Khamrah, and Ramz Gold">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/7.png" alt="50ml perfumes" loading="lazy" />
       <h3>50ml perfumes</h3>
       <p>
@@ -210,7 +230,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="50ml perfumes including Hayaati and Lail Malake">
+    <article class="product" data-category="perfume" aria-label="50ml perfumes including Hayaati and Lail Malake">
+     <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/8.png" alt="50ml perfumes" loading="lazy" />
       <h3>50ml perfumes</h3>
       <p>
@@ -223,7 +244,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="AJWAD 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="AJWAD 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/9.png" alt="AJWAD 100ML" loading="lazy" />
       <h3>AJWAD 100ML</h3>
       <p>A warm and inviting fragrance with sweet florals, soft musk and woody undertones — elegant, long-lasting and beautifully balanced.</p>
@@ -233,7 +255,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Barez 100ml perfume">
+    <article class="product" data-category="perfume" aria-label="Barez 100ml perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/10.png" alt="Barez 100ml" loading="lazy" />
       <h3>Barez 100ml</h3>
       <p>A fresh and invigorating fragrance blending citrus, aromatic herbs, and subtle woody notes — perfect for everyday confidence.</p>
@@ -243,7 +266,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Private princess 100ml perfume">
+    <article class="product" data-category="perfume" aria-label="Private princess 100ml perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/11.png" alt="Ameerat 100ml private princess" loading="lazy" />
       <h3>Private princess 100ml</h3>
       <p>A bold twist on the classic — rich floral and fruity notes with warm musk and amber for a passionate, long-lasting scent.</p>
@@ -253,7 +277,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="ASAD 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="ASAD 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/12.png" alt="ASAD 100ML" loading="lazy" />
       <h3>ASAD 100 ML</h3>
       <p>A powerful, masculine fragrance with spicy notes, rich woods, and deep musk — confident, intense, and unforgettable.</p>
@@ -263,7 +288,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Hayaati 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Hayaati 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/13.png" alt="HAYAATI 100ML" loading="lazy" />
       <h3>Hayaati 100 ML</h3>
       <p>A vibrant and enchanting fragrance with floral and fruity notes, perfect for everyday elegance and special moments.</p>
@@ -273,7 +299,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Khamrah 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Khamrah 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/14.png" alt="Khamrah 100ML" loading="lazy" />
       <h3>Khamrah 100 ML</h3>
       <p>A bold and captivating scent with warm spicy, sweet, and woody notes — inspired by luxury and tradition.</p>
@@ -283,7 +310,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Khamrah Qahwa 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Khamrah Qahwa 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/15.png" alt="Khamrah Qahwa 100ml" loading="lazy" />
       <h3>Khamrah Qahwa 100 ML</h3>
       <p>A rich and warm fragrance blending aromatic coffee notes with spicy and woody undertones — perfect for cozy, elegant moments.</p>
@@ -293,7 +321,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Mayar natural intense 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Mayar natural intense 100ML perfume">
+     <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/16.png" alt="Mayar natural intense 100ml" loading="lazy" />
       <h3>Mayar natural intense 100 ML</h3>
       <p>A vibrant and long-lasting fragrance with fruity, floral, and musky notes — bold yet beautifully feminine.</p>
@@ -303,7 +332,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Mayar 100ML perfume">
+    <article class="product"data-category="perfume"  aria-label="Mayar 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/17.png" alt="Mayar 100ml" loading="lazy" />
       <h3>Mayar 100 ML</h3>
       <p>A soft, romantic blend of fresh florals and sweet fruit notes — feminine, youthful, and perfect for everyday wear.</p>
@@ -313,7 +343,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Rave now rough 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Rave now rough 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/18.png" alt="Rave now rough 100ml" loading="lazy" />
       <h3>Rave now rough 100 ML</h3>
       <p>A vibrant and energetic scent with fruity top notes, soft florals, and a warm musky base — confident, playful, and modern.</p>
@@ -323,7 +354,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Ramz silver 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Ramz silver 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/19.png" alt="Ramz silver 100ml" loading="lazy" />
       <h3>Ramz silver 100 ML</h3>
       <p>A sophisticated fusion of oriental woods, amber, and musk — bold, warm, and made to leave a lasting impression.</p>
@@ -333,7 +365,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Ramz gold 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Ramz gold 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/20.png" alt="Ramz gold 100ml" loading="lazy" />
       <h3>Ramz gold 100 ML</h3>
       <p>A bold and luxurious scent with warm amber, soft musk, and hints of spice — crafted for those who love elegance with a statement.</p>
@@ -343,7 +376,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Rose paris 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Rose paris 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/21.png" alt="Rose paris 100ml" loading="lazy" />
       <h3>Rose paris 100 ML</h3>
       <p>A delicate bouquet of fresh roses blended with soft musk and a hint of citrus — timeless, romantic, and feminine.</p>
@@ -353,7 +387,8 @@
       </a>
     </article>
 
-    <article class="product" aria-label="Velvet rose 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="Velvet rose 100ML perfume">
+     <button class="favorite-btn" title="Add to Wishlist">❤️</button> 
       <img src="images/22.png" alt="Velvet rose 100ml" loading="lazy" />
       <h3>Velvet rose 100 ML</h3>
       <p>A luxurious blend of rich rose petals and warm musk — soft, sensual, and timelessly feminine.</p>
@@ -362,8 +397,9 @@
         <button type="button" aria-label="Order Velvet rose 100ML now">Order Now</button>
       </a>
     </article>
-<article class="product" aria-label="Yara candy 100ML perfume">
-      <img src="images/23.png" alt="Yara candy 100ml" loading="lazy" />
+<article class="product" data-category="perfume" aria-label="Yara candy 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
+  <img src="images/23.png" alt="Yara candy 100ml" loading="lazy" />
       <h3>Yara candy 100 ML</h3>
       <p>A playful and sweet fragrance bursting with fruity, creamy, and sugary notes — perfect for candy lovers and confident queens.</p>
       <p>R210</p>
@@ -371,7 +407,8 @@
         <button type="button" aria-label="Order Yara candy 100ML now">Order Now</button>
       </a>
     </article>
-    <article class="product" aria-label="mousuf 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="mousuf 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/24.png" alt="mousuf 100ml" loading="lazy" />
       <h3>Mousuf 100 ML</h3>
       <p>A warm and woody fragrance with notes of amber, spice, and soft leather — smooth, masculine, and irresistibly bold.</p>
@@ -380,7 +417,8 @@
         <button type="button" aria-label="Order Mousuf 100ML now">Order Now</button>
       </a>
     </article>
-    <article class="product" aria-label="oud mood 100ML perfume">
+    <article class="product" data-category="perfume"  aria-label="oud mood 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/26.png" alt="oud mood 100ml" loading="lazy" />
       <h3>oud mood 100 ML</h3>
       <p>An opulent blend of oud, amber, and sweet florals — rich, warm, and unforgettable. A scent that speaks pure elegance.</p>
@@ -389,7 +427,8 @@
         <button type="button" aria-label="Order oud mood 100ML now">Order Now</button>
       </a>
     </article>
-    <article class="product" aria-label="lail malaki 100ML perfume">
+    <article class="product" data-category="perfume" aria-label="lail malaki 100ML perfume">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/27.png" alt="lail malaki 100ml" loading="lazy" />
       <h3>lail malaki 100 ML</h3>
       <p>A captivating blend of sweet florals, soft musk, and warm amber — mysterious, feminine, and perfect for evening elegance.</p>
@@ -398,7 +437,8 @@
         <button type="button" aria-label="Order lail Malaki 100ML now">Order Now</button>
       </a>
     </article>
-    <article class="product" aria-label="luxury hair care kit ">
+    <article class="product" data-category="wellness" aria-label="luxury hair care kit ">
+     <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/28.png" alt="luxury hair care kit 100ml" loading="lazy" />
       <h3>luxury hair care kit</h3>
       <p>All-in-one styling set featuring hair mousse, heat protection spray, lace tint, lace glue pen, wax stick, lace glue & remover, edge control, and edge brush/comb — everything you need for flawless installs and sleek edges.</p>
@@ -407,7 +447,8 @@
         <button type="button" aria-label="Order luxury hair care kit now">Order Now</button>
       </a>
     </article>
-     <article class="product" aria-label="keratin set">
+     <article class="product" data-category="wellness" aria-label="keratin set">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/29.png" alt="keratin set" loading="lazy" />
       <h3>keratin shampoo & conditioner set</h3>
       <p>Strengthen and smooth your hair with this nourishing duo infused with keratin — for frizz-free, silky, and healthy-looking hair.</p>
@@ -417,7 +458,8 @@
       </a>
     </article>
      </article>
-    <article class="product">
+    <article class="product"data-category="combo" aria-label="Morning metabolism boost combo">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/30.png" alt="Morning metabolism boost combo">
       <h3>Morning Metabolism Booster Kit</h3>
       <p>Kickstart your day with this energizing combo designed to boost metabolism, burn fat, and support overall wellness.</p>
@@ -425,7 +467,8 @@
       <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Morning%20Metabolism%20Booster%20Kit"><button>Order Now</button></a>
     </article>
 
-    <article class="product">
+    <article class="product"data-category="combo" aria-label="Wellness Queen Starter Pack">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/31.png" alt="Wellness Queen Starter Pack">
       <h3>Wellness Queen Starter Pack</h3>
       <p>Your all-in-one wellness bundle to glow from the inside out — supporting energy, gut health, weight management, and confidence.</p>
@@ -433,7 +476,8 @@
       <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Wellness%20Queen%20Starter%20Pack"><button>Order Now</button></a>
     </article>
 
-    <article class="product">
+    <article class="product"data-category="combo" aria-label="Glow & Gut Wellness Pack">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/32.png" alt="Glow & Gut Wellness Pack">
       <h3>Glow & Gut Wellness Pack</h3>
       <p>A powerful duo to support radiant skin and a healthy digestive system — feel balanced, energized, and beautiful from within.</p>
@@ -441,7 +485,8 @@
       <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Glow%20and%20Gut%20Wellness%20Pack"><button>Order Now</button></a>
     </article>
 
-    <article class="product">
+    <article class="product"data-category="combo" aria-label="Total Body Reset Kit">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/33.png" alt="Total Body Reset Kit">
       <h3>Total Body Reset Kit</h3>
       <p>A full-body wellness bundle designed to cleanse, energize, and restore — perfect for kickstarting a healthier, more balanced you.</p>
@@ -449,7 +494,8 @@
       <a href="https://wa.me/27639440527?text=Hi%20Elmari!%20I%20want%20to%20order%20the%20Total%20Body%20Reset%20Kit"><button>Order Now</button></a>
     </article>
 
-    <article class="product">
+    <article class="product"data-category="combo" aria-label="Slim & Sculpt Combo">
+      <button class="favorite-btn" title="Add to Wishlist">❤️</button>
       <img src="images/34.png" alt="Slim & Sculpt Combo">
       <h3>Slim & Sculpt Combo</h3>
       <p>A targeted wellness set designed to support fat-burning, waist shaping, and overall body toning — your sculpting journey starts here.</p>
@@ -512,6 +558,69 @@
       product.style.display = 'block';
     });
   }
+  const filterButtons = document.querySelectorAll('#category-filter button');
+  const products = document.querySelectorAll('.product');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+
+      products.forEach(product => {
+        const category = product.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+  });
+document.addEventListener("DOMContentLoaded", () => {
+  const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+  // Load saved favorites
+  const savedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+  // Mark saved favorites
+  document.querySelectorAll(".product").forEach(product => {
+    const id = product.dataset.id;
+    if (savedFavorites.includes(id)) {
+      product.querySelector(".favorite-btn").classList.add("active");
+    }
+  });
+
+  // Handle click
+  favoriteButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+      const product = e.target.closest(".product");
+      const id = product.dataset.id;
+
+      let favorites = JSON.parse(localStorage.getItem("show-favorites-btn")) || [];
+
+      if (favorites.includes(id)) {
+        favorites = favorites.filter(item => item !== id);
+        button.classList.remove("active");
+      } else {
+        favorites.push(id);
+        button.classList.add("active");
+      }
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    });
+  });
+
+  // Show favorites only
+  const showFavoritesBtn = document.getElementById("show-favorites-btn");
+  if (showFavoritesBtn) {
+    showFavoritesBtn.addEventListener("click", () => {
+      const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+      document.querySelectorAll(".product").forEach(product => {
+        const id = product.dataset.id;
+        product.style.display = favorites.includes(id) ? "block" : "none";
+      });
+    });
+  }
+});
 </script>
 
 </body>
